@@ -1,28 +1,36 @@
-// initial starting point for Node/Express server
-const express = require('express');
+// *****************************************************************************
+// Server.js - This file is the initial starting point for the Node/Express server.
+//
+// ******************************************************************************
+// *** Dependencies
+// =============================================================
+var express = require("express");
 
-// set up express app
-const app = express();
+// Sets up the Express App
+// =============================================================
+var app = express();
 var PORT = process.env.PORT || 8080;
 
-// requiring models for syncing
-const db = require('./models');
+// Requiring our models for syncing
+var db = require("./models");
 
-// sets up express app to handle data parsing
+// Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// static directory
-app.use(express.static('public'));
+// Static directory
+app.use(express.static("public"));
 
-// routes
-require('./routes/html-routes.js')(app);
-require('./routes/quthor-api-routes')(app);
-require('./routes/post-api-routes.js');
+// Routes
+// =============================================================
+require("./routes/html-routes.js")(app);
+require("./routes/author-api-routes.js")(app);
+require("./routes/post-api-routes.js")(app);
 
-// syncing our sequelize models and starting express app
-db.sequelize.sync([force: true]).then(function () {
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({ force: true }).then(function () {
     app.listen(PORT, function () {
-        console.log('App listening on PORT ' + PORT);
+        console.log("App listening on PORT " + PORT);
     });
 });
