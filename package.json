@@ -1,0 +1,29 @@
+{
+  "name": "practice-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/efuller82/practice-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/efuller82/practice-blog/issues"
+  },
+  "homepage": "https://github.com/efuller82/practice-blog#readme",
+  "dependencies": {
+    "basename": "^0.1.2",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "mysql2": "^2.0.0",
+    "path": "^0.12.7",
+    "sequelize": "^5.21.2"
+  }
+}
